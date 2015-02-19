@@ -49,7 +49,7 @@ class rc_factory(object):
 
         class HttpResponseWrapper(HttpResponse):
             """
-            Wrap HttpResponse and make sure that the internal_base_content_is_iter 
+            Wrap HttpResponse and make sure that the internal_base_content_is_iter
             flag is updated when the _set_content method (via the content
             property) is called
             """
@@ -252,7 +252,7 @@ class Mimer(object):
 
             if loadee:
                 try:
-                    self.request.data = loadee(self.request.raw_post_data)
+                    self.request.data = loadee(self.request.body)
 
                     # Reset both POST and PUT from request, as its
                     # misleading having their presence around.
