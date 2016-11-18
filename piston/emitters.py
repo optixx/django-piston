@@ -294,7 +294,10 @@ class Emitter(object):
             return dict([ (k, _any(v, fields)) for k, v in data.iteritems() ])
 
         # Kickstart the seralizin'.
-        return _any(self.data, self.fields)
+        if isinstance(self.data, HttpResponse) and not isinstance(self.data.content, str):
+            return _any(self.data.content, self.fields)
+        else
+            return _any(self.data, self.fields)
 
     def in_typemapper(self, model, anonymous):
         for klass, (km, is_anon) in self.typemapper.iteritems():
