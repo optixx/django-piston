@@ -298,7 +298,7 @@ class Emitter(object):
         # Kickstart the seralizin'.
         if isinstance(self.data, HttpResponse) and not isinstance(self.data.content, str):
             return _any(self.data.content, self.fields)
-        else
+        else:
             return _any(self.data, self.fields)
 
     def in_typemapper(self, model, anonymous):
